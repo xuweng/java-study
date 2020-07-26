@@ -156,20 +156,17 @@ public class MyTomcat {
                 myResponse.write("404");
                 return;
             }
-            es.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Class<MyServlet> myServletClass = (Class<MyServlet>) Class.forName(clazz);
-                        MyServlet myServlet = myServletClass.newInstance();
-                        myServlet.service(myRequest, myResponse);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                    }
+            es.execute(() -> {
+                try {
+                    Class<MyServlet> myServletClass = (Class<MyServlet>) Class.forName(clazz);
+                    MyServlet myServlet = myServletClass.newInstance();
+                    myServlet.service(myRequest, myResponse);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
                 }
             });
         } catch (IOException e) {

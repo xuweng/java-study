@@ -35,11 +35,11 @@ public class MyRequest {
             method = httpHead.split("\\s")[0];
 
             //  一下是拆分get请求的参数数据
-            String[] params = path.indexOf("?") > 0 ? path.split("\\?")[1].split("\\&") : null;
+            String[] params = path.indexOf("?") > 0 ? path.split("\\?")[1].split("&") : null;
             if (params != null) {
                 try {
                     for (String tmp : params) {
-                        param.put(tmp.split("\\=")[0], tmp.split("\\=")[1]);
+                        param.put(tmp.split("=")[0], tmp.split("=")[1]);
                     }
                 } catch (NullPointerException e) {
                     e.printStackTrace();
