@@ -8,6 +8,10 @@ import java.util.concurrent.FutureTask;
  * https://blog.csdn.net/kealina/article/details/78376795
  * <p>
  * IDEA快捷键设置复制上一行
+ * <p>
+ * 写代码的感觉太好了
+ * <p>
+ * 不能复制，只能手写，锻炼手速
  */
 public class Main2 {
     //创建任务类，类似Runnable
