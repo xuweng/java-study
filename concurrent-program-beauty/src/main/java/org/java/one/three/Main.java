@@ -18,6 +18,7 @@ class Example {
                         e.printStackTrace();
                     }
                 }
+                System.out.println("生产:" + value);
                 queue.offer(value);
                 //唤醒消费者线程
                 queue.notifyAll();
@@ -35,6 +36,7 @@ class Example {
                         e.printStackTrace();
                     }
                 }
+                System.out.println("消费:");
                 queue.poll();
                 queue.notifyAll();
             }
@@ -43,7 +45,7 @@ class Example {
 }
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         new Thread(() -> {
             new Example.ProducerThread().produce(1);
         }).start();
@@ -51,5 +53,7 @@ public class Main {
         new Thread(() -> {
             new Example.ConsumerThread().consumption();
         }).start();
+
+        Thread.sleep(3000);
     }
 }
