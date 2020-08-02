@@ -25,6 +25,7 @@ public class Main2 {
         //启动线程
         new Thread(futureTask).start();
         //等待任务执行完毕，并返回结果
+        //调用get会阻塞调用者线程，即main线程
         String result = futureTask.get();
 
         System.out.println(result);
