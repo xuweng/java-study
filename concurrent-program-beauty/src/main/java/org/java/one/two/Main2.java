@@ -18,7 +18,7 @@ public class Main2 {
     public static class CallerTask implements Callable<String> {
         @Override
         public String call() throws Exception {
-            //等待3s
+            //等待3s。模拟
             Thread.sleep(3000);
             return "hello";
         }
