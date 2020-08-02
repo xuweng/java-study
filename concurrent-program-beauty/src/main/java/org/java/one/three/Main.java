@@ -46,10 +46,10 @@ public class Main {
     public static void main(String[] args) {
         new Thread(() -> {
             new Example.ProducerThread().produce(1);
-        });
+        }).start();
 
         new Thread(() -> {
             new Example.ConsumerThread().consumption();
-        });
+        }).start();
     }
 }
