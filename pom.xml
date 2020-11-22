@@ -17,6 +17,7 @@
         <module>java-concurrent</module>
         <module>java-minitomcat</module>
         <module>concurrent-program-beauty</module>
+        <module>java-lagou</module>
     </modules>
     <dependencyManagement>
         <dependencies>
